@@ -25,6 +25,7 @@ from rlgraph.environments.random_env import RandomEnv
 from rlgraph.environments.vector_env import VectorEnv
 from rlgraph.environments.sequential_vector_env import SequentialVectorEnv
 
+import rlgraph.environments.custom.openai.envs
 
 Environment.__lookup_classes__ = dict(
     deterministic=DeterministicEnv,

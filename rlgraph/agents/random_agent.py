@@ -30,9 +30,9 @@ class RandomAgent(Agent):
         )
 
     def get_action(self, states, internals=None, use_exploration=False,  apply_preprocessing=True, extra_returns=None):
-        a = self.action_space.sample(size=len(states[0]))
+        a = self.action_space.sample()
         if extra_returns is not None and "preprocessed_states" in extra_returns:
-            return a, states
+            return states, a
         else:
             return a
 

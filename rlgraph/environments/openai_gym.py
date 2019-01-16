@@ -70,6 +70,7 @@ class OpenAIGymEnv(Environment):
             self.gym_env = gym.wrappers.FlattenDictWrapper(self.gym_env, dict_keys=['observation', 'desired_goal'])
             self.achieved_goal = self.translate_space(self.gym_env.env.observation_space.spaces['achieved_goal'],
                                                       force_float32=force_float32)
+
         # Manually set the frameskip property.
         self.frameskip = None
         if frameskip is not None:
@@ -177,7 +178,6 @@ class OpenAIGymEnv(Environment):
         self.gym_env = None
 
     def _step_and_skip(self, actions):
-        # TODO - allow for goal reward substitution for multi-goal envs
         if self.frameskip is None:
             # Frames kipping is unset or set as env property.
             return self.gym_env.step(actions)
